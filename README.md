@@ -2,6 +2,7 @@ Projet de module IA
 Creation d'un site personel pour un CV en ligne
 par Amaury
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 ETAPE 1 : INITIALISATION DU SITE
 
@@ -15,6 +16,9 @@ Le style sera dans le sous dossier css.
 les fichier js seront dans le sous dossier js.
 tu les trouvera tous dans le dosser de travail ou se trouve le fichier index.html que tu va commencer a editer. Tu pourra mettre en entete de page la favicon qui se trouve deja dans le dossier img "favicon-16x16.png" (je modifirais plus tard si il faut la passer en .ico)
 
+--------------------------------------------------------------------------------------------------------------------------------------
+
 Etape 2 PERSONALISATION
 
 Mise a jours des balises, nom et autres pour que le site soit plus personnel
+
