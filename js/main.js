@@ -218,8 +218,8 @@ if (carousel && allSlides.length > 0) {
   function updateCarousel() {
     if (visibleSlides.length === 0) return;
 
-    // Calculer la largeur d'une slide
-    const slideWidth = carousel.offsetWidth;
+    // Calculer la largeur d'une slide à partir du conteneur visible
+    const slideWidth = carousel.parentElement.getBoundingClientRect().width;
     
     // Repositionner selon les slides visibles seulement
     carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`;

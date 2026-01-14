@@ -22,6 +22,12 @@ body.dark {
   font-family: Inter, sans-serif;
 }
 
+/* Clamp layout to viewport width to avoid overflow issues */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -811,29 +817,37 @@ body.dark .form-message.error {
 /* Styles du carrousel de projets */
 .carousel-container {
   position: relative;
-  max-width: 900px;
+  max-width: 780px;
   margin: 2rem auto;
-  padding: 0 3rem;
+  padding: 0 1rem;
 }
 
 .carousel-wrapper {
   overflow: hidden;
   border-radius: 1rem;
+  padding: 0;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  width: 100%;
 }
 
 .carousel-slide {
+  flex: 0 0 100%;
   min-width: 100%;
-  padding: 0 0.5rem;
+  width: 100%;
+  padding: 0;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 }
 
 .carousel-slide .card {
   margin: 0;
+  width: 100%;
+  max-width: 720px;
   height: 100%;
 }
 
@@ -864,11 +878,11 @@ body.dark .form-message.error {
 }
 
 .carousel-btn-prev {
-  left: 0;
+  left: -0.75rem;
 }
 
 .carousel-btn-next {
-  right: 0;
+  right: -0.75rem;
 }
 
 .carousel-dots {
@@ -906,20 +920,16 @@ body.dark .form-message.error {
   }
 
   .carousel-container {
-    padding: 0;
+    padding: 0 0.75rem;
     max-width: 100%;
   }
 
   .carousel-wrapper {
-    margin: 0 1rem;
-  }
-
-  .carousel-slide {
-    padding: 0;
+    margin: 0;
   }
 
   .carousel-slide .card {
-    padding: 1.5rem;
+    padding: 1.25rem;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
@@ -980,7 +990,7 @@ body.dark .form-message.error {
 
 @media (max-width: 480px) {
   .carousel-slide .card {
-    padding: 1.25rem;
+    padding: 1.1rem;
     min-height: 55vh;
   }
 
