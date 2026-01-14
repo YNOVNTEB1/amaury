@@ -820,18 +820,24 @@ body.dark .form-message.error {
   max-width: 780px;
   margin: 2rem auto;
   padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .carousel-wrapper {
   overflow: hidden;
   border-radius: 1rem;
   padding: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .carousel-slide {
