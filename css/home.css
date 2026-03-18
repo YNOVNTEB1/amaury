@@ -814,6 +814,38 @@ body.dark .form-message.error {
   border-color: var(--accent);
 }
 
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 2rem auto;
+  width: 100%;
+  align-items: stretch;
+}
+
+.project-item {
+  min-width: 0;
+  display: flex;
+}
+
+.project-item .card {
+  margin-bottom: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-item .tags {
+  margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* Styles du carrousel de projets */
 .carousel-container {
   position: relative;
@@ -973,21 +1005,37 @@ body.dark .form-message.error {
     font-size: 0.9rem;
     padding: 0.4rem 0.8rem;
   }
-
   .filter-buttons {
-    flex-direction: row;
-    justify-content: center;
-    padding: 0 0.5rem;
-    gap: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0;
     margin: 1.5rem 0;
   }
 
-  .filter-btn {
-    flex: 1;
-    min-width: 0;
-    padding: 0.6rem 0.4rem;
-    font-size: 0.8rem;
+  /* CIBLE LE PROBLÈME ICI : On ajoute .active au sélecteur */
+  .filter-btn,
+  .filter-btn.active { 
+    width: 100%;
+    max-width: 100%; /* Sécurité supplémentaire */
+    box-sizing: border-box; /* Indispensable pour que le padding ne s'ajoute pas à la largeur */
+    
+    /* On s'assure que le texte ne force pas la largeur */
+    white-space: normal; 
+    min-width: 0; /* Permet au flex-item de rétrécir sous son contenu si besoin */
+    
+    /* On garde ton style visuel */
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
     border-radius: 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
   }
 
   .carousel-dots {
@@ -996,7 +1044,7 @@ body.dark .form-message.error {
   }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .carousel-slide .card {
     padding: 1.1rem;
     min-height: 55vh;
@@ -1018,5 +1066,22 @@ body.dark .form-message.error {
   .carousel-dot {
     width: 10px;
     height: 10px;
+  }
+} */
+
+@media (max-width: 480px) {
+ /* On cible .filter-btn ET .filter-btn.active pour forcer la priorité */
+  .filter-btn,
+  .filter-btn.active {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box; /* Crucial pour inclure le padding dans les 100% */
+    
+    /* On écrase les marges potentielles */
+    margin-left: 0;
+    margin-right: 0;
+    
+    /* Sécurité pour les très petits écrans */
+    min-width: 0;
   }
 }
