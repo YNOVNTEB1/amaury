@@ -405,12 +405,18 @@ main.container p {
 }
 
 .date {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
   background: var(--accent);
   color: white;
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
   font-size: 0.85rem;
   font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 /* Skills Grid */
@@ -449,6 +455,33 @@ body.dark .skill-bar {
   border-radius: 4px;
 }
 
+.skills-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: stretch;
+}
+
+.skills-card {
+  margin-bottom: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-card h2 {
+  margin-bottom: 1rem;
+}
+
+.soft-skills-card {
+  grid-column: auto;
+}
+
+.soft-skills-card .skills-tags {
+  margin-top: 0;
+}
+
 /* Tags */
 .skills-tags,
 .tags {
@@ -459,21 +492,33 @@ body.dark .skill-bar {
 }
 
 .tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--accent);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 /* Interests Grid */
 .interests-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+}
+
+.interests-grid .card {
+  margin-bottom: 0;
+}
+
+.interests-grid .card:nth-child(4) {
+  grid-column: 2;
 }
 
 /* Contact Section */
@@ -580,8 +625,20 @@ body.dark .skill-bar {
     grid-template-columns: 1fr;
   }
 
+  .skills-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .soft-skills-card {
+    grid-column: auto;
+  }
+
   .interests-grid {
     grid-template-columns: 1fr;
+  }
+
+  .interests-grid .card:nth-child(4) {
+    grid-column: auto;
   }
 
   .contact-container {
@@ -838,6 +895,14 @@ body.dark .form-message.error {
 
 .project-item .tags {
   margin-top: auto;
+}
+
+.project-item .tags .tag {
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.18);
+}
+
+.project-item .card .date {
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.18);
 }
 
 @media (max-width: 1024px) {
